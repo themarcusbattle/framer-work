@@ -15,12 +15,9 @@
                             <span class="post-date"><?php the_date(); ?></span> | 
                             <span class="post-author"><?php the_author(); ?></span>
                         </div>
-                        <?php 
-                            the_content();
-                            if ( is_archive() ) :
-                            ?>
-                                <a href="<?php echo get_permalink(); ?>" class="button sz-small">Read More</a>
-                            <?php endif; ?>
+                        <?php if ( is_archive() ) : the_excerpt(); ?>
+                            <a href="<?php echo get_permalink(); ?>" class="button sz-small">Read More</a>
+                        <?php else: the_content(); endif; ?>
                     </div>
                     <?php 
                         if ( comments_open() || get_comments_number() ) :

@@ -10,7 +10,7 @@ $term_slug = isset( $terms[0] ) ? $terms[0]->slug : '';
     <div class="container">
         <nav>
             <ul class="crumbs">
-                <?php if ( is_singular( 'status' ) && $term_name ) : ?>
+                <?php if ( is_singular( 'update' ) && $term_name ) : ?>
                     <li><a href="<?php echo home_url(); ?>">Home</a></li>
                     <li>/</li>
                     <li><a href="<?php echo home_url( 'projects/' . $term_slug ); ?>"><?php echo esc_html( $term_name ); ?></a></li>
