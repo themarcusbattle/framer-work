@@ -1,26 +1,22 @@
 <footer>
     <div class="grid has-text-centered">
         <div class="col one-third">
-            <nav>
-                <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Policy</a></li>
-                    <li><a href="#">Terms</a></li>
-                </ul>
-            </nav>
+            <?php 
+                if ( has_nav_menu( 'footer-main-menu' ) ) {
+                    wp_nav_menu( array( 'theme_location' => 'footer-main-menu' ) ); 
+                }
+            ?>    
         </div>
         <div class="col one-third">
             <h3><?php echo get_bloginfo(); ?></h3>
-            <p class="fineprint">Be sure to take a look at our Terms of Use and Privacy Policy</p>
+            <p class="fineprint">&copy; <?php echo date('Y') . ' ' . get_bloginfo(); ?>. All Rights Reserved.</p>
         </div>
         <div class="col one-third">
-            <nav>
-                <ul>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-            </nav>
+            <?php 
+                if ( has_nav_menu( 'footer-secondary-menu' ) ) {
+                    wp_nav_menu( array( 'theme_location' => 'footer-secondary-menu' ) ); 
+                }
+            ?>
         </div>
     </div>
 </footer>

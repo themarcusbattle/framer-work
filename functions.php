@@ -18,9 +18,10 @@ class Framer {
         $headline               = isset( $headline ) ? $headline : 'Battle Framework';
         $subtitle               = isset( $subtitle ) ? $subtitle : 'We made it so beautiful and simple. It combines landings, pages, blogs, and shop screens. It is definitely the tool you need in your collection.';
         $primary_button_label   = isset( $primary_button_label ) ? $primary_button_label : 'Buy Now';
-        $primary_button_link    = isset( $primary_button_link ) ? $primary_button_link : '#';
+        $primary_button_link    = isset( $primary_button_link ) ? $primary_button_link : '';
         $secondary_button_label = isset( $secondary_button_label ) ? $secondary_button_label : 'Learn More';
-        $secondary_button_link  = isset( $secondary_button_link ) ? $secondary_button_link : '#';
+        $secondary_button_link  = isset( $secondary_button_link ) ? $secondary_button_link : '';
+        $background_img_url     = isset( $background_img_url ) ? $background_img_url : '';
 
         include( self::get_block( "heroes/hero-{$type}" ) );
     }
@@ -54,6 +55,10 @@ class Framer {
         include( self::get_block( "footers/footer-{$type}" ) );
     }
 
+    public function _breadcrumb() {
+        include( self::get_block( "components/breadcrumb" ) );
+    }
+
     private function get_block( string $template = '' ) : string {
 
         $template_path = locate_template( 'templates/blocks/' . $template . '.php', false, false );
@@ -65,3 +70,26 @@ class Framer {
         return $template_path;
     }
 }
+
+class Framer_Menu {
+
+    public static function register() {
+
+        $plugin = new self();
+
+        add_action( 'init', [ $plugin, 'register_menus' ] );
+    }
+
+    public function register_menus() {
+        register_nav_menus(
+            [
+                'header-main-menu'      => __( 'Header Main' ),
+                'header-secondary-menu' => __( 'Header Secondary' ),
+                'footer-main-menu'      => __( 'Footer Main' ),
+                'footer-secondary-menu' => __( 'Footer Secondary' ),
+            ]
+        );
+    }
+}
+
+Framer_Menu::register();
