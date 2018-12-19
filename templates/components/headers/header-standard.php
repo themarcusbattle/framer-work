@@ -8,7 +8,7 @@
                     <div class="logo"><a href="<?php echo home_url(); ?>"><?php echo $logo; ?></a></div>
                 <?php endif; ?>
             </div>
-            <div class="col one-half has-text-right has-no-side-margin is-full-on-mobile has-text-centered-on-mobile">
+            <div class="col one-half has-text-right has-no-side-margin hide-on-mobile">
                 <?php 
                     if ( has_nav_menu( 'header-main-menu' ) ) {
                         wp_nav_menu( [ 
@@ -17,6 +17,16 @@
                         ] ); 
                     }
                 ?> 
+            </div>
+            <div class="col one-half has-text-right has-no-side-margin hide-on-desktop">
+                <?php 
+                    if ( has_nav_menu( 'header-main-menu-mobile' ) ) {
+                        wp_nav_menu( [ 
+                            'theme_location' => 'header-main-menu-mobile',
+                            'container'      => 'nav'
+                        ] ); 
+                    }
+                ?>
             </div>
         </div>
     </div>

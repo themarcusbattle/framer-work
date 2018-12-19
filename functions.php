@@ -208,10 +208,11 @@ class Framer_Menu {
     public function register_menus() {
         register_nav_menus(
             [
-                'header-main-menu'      => __( 'Header Main' ),
-                'header-secondary-menu' => __( 'Header Secondary' ),
-                'footer-main-menu'      => __( 'Footer Main' ),
-                'footer-secondary-menu' => __( 'Footer Secondary' ),
+                'header-main-menu'        => __( 'Header Main' ),
+                'header-main-menu-mobile' => __( 'Header Main Mobile' ),
+                'header-secondary-menu'   => __( 'Header Secondary' ),
+                'footer-main-menu'        => __( 'Footer Main' ),
+                'footer-secondary-menu'   => __( 'Footer Secondary' ),
             ]
         );
     }
