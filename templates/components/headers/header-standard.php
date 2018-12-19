@@ -1,7 +1,7 @@
 <header class="<?php echo $classes; ?>">
     <div class="container">
         <div class="grid">
-            <div class="col one-half branding has-no-side-margin is-full-on-mobile">
+            <div class="col one-half branding has-no-side-margin">
                 <?php if ( is_home() ) : ?>
                     <h1 class="logo"><a href="<?php echo home_url(); ?>"><?php echo $logo; ?></a></h1>
                 <?php else: ?>
