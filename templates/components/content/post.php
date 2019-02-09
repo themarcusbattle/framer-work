@@ -15,7 +15,7 @@
                             <span class="post-date"><?php the_date(); ?></span> | 
                             <span class="post-author"><?php the_author(); ?></span>
                         </div>
-                        <?php if ( is_archive() ) : the_excerpt(); ?>
+                        <?php if ( is_archive() || is_home() ) : the_excerpt(); ?>
                             <a href="<?php echo get_permalink(); ?>" class="button sz-small">Read More</a>
                         <?php else: the_content(); endif; ?>
                     </div>
